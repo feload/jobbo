@@ -1,0 +1,12 @@
+.controls .button {
+  color: #fff;
+  padding: 10px;
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.controls .button.-default {
+  background: #388AC7;
+}

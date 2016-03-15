@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+
+  "name": "Jobbo",
+  "description": "Chrome extension that notifies when a job position is published on a certain page.",
+  "version": "0.1",
+
+  "permissions": [
+    "notifications"
+  ],
+
+  "browser_action": {
+    "default_icon": "dist/assets/gandolf.gif",
+    "default_popup": "popup.html"
+  }
+}
