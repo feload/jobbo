@@ -1,1 +1,0 @@
-Jobbo.App.run();
