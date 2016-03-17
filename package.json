@@ -1,0 +1,29 @@
+{
+  "name": "jobbo",
+  "version": "1.0.0",
+  "description": "Chrome extension that notifies when a job position is published on a certain page.",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-watch": "^4.3.5",
+    "gulp-uglify": "^1.5.3",
+    "gulp-rename": "^1.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feload/jobbo.git"
+  },
+  "keywords": [
+    "experiment"
+  ],
+  "author": "Felipe de Jesús <feload@gmail.com> (http://www.linkedin.com/in/feload)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/feload/jobbo/issues"
+  },
+  "homepage": "https://github.com/feload/jobbo#readme"
+}
