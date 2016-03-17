@@ -1,21 +1,41 @@
-var Jobbo = window.Jobbo || {};
-Jobbo.App = (function(){
+/**
+ * Jobbo v0.1
+ */
 
-    var options = {};
+var Jobbo = window.Jobbo || {};
+
+Jobbo.App = (function($, Alarm){
+
+    var defaults = {
+            alarm: {}
+        },
+        config = {};
 
     return {
 
-        setDom: function(){
+        run: function(){
+            Alarm.init(config.alarm).run();
+            return this;
         },
 
-        init: function(){
+        setUp: function(_options){
+            config = $.extend(defaults, _options);
         },
 
-        run: function(options){
-            this.init();
-            this.setDom();
+        init: function(_options){
+            this.setUp(_options || {});
+            return this;
         }
 
     }
 
-})();
+})($, Jobbo.Alarm);
+
+document.addEventListener('DOMContentLoaded', function() {
+    Jobbo.App.init({
+        alarm: {
+            onAlarm: function(){
+            }
+        }
+    }).run();
+});
