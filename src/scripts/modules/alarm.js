@@ -1,16 +1,12 @@
-/**
- * Jobbo.Alarms
- */
-
 var Jobbo = window.Jobbo || {};
 
-Jobbo.Alarm = (function(){
+Jobbo.Alarm = (function(Finder){
 
     var defaults = {
             name: "JobboAlarm",
             lap: {
+                periodInMinutes: 0.1,
                 delayInMinutes: 0.1,
-                periodInMinutes: 0.2
             },
             onAlarm: function(){ }
         },
@@ -19,7 +15,8 @@ Jobbo.Alarm = (function(){
     return {
 
         addListener: function(){
-            chrome.alarms.onAlarm.addListener(config.onAlarm);
+            chrome.alarms.onAlarm.addListener(Finder.search);
+            return this;
         },
 
         createAlarm: function(){
@@ -28,8 +25,12 @@ Jobbo.Alarm = (function(){
         },
 
         run: function(){
-            this.createAlarm().addListener();
-            return this;
+            this.createAlarm()
+                .addListener();
+        },
+
+        initDeps: function(){
+            Finder.init();
         },
 
         setUp: function(_options){
@@ -38,9 +39,9 @@ Jobbo.Alarm = (function(){
 
         init: function(_options){
             this.setUp(_options || {});
-            return this;
+            this.initDeps();
         }
 
     }
 
-})();
+})(Jobbo.Finder);
