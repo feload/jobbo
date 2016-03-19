@@ -11,7 +11,7 @@
   ],
 
   "background": {
-    "scripts": ["dist/scripts/main.js"],
+    "scripts": ["scripts/main.js"],
     "persistent": true
   }
 }
