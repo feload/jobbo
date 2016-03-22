@@ -4,13 +4,20 @@ var Jobbo = window.Jobbo || {};
 
 Jobbo.Notifier = (function(){
 
-    var defaults = {},
+    var defaults = {
+            type: 'basic',
+            iconUrl: '../assets/gandalf.png',
+            title: 'We have found something for you!',
+            message: 'Hey! this is what we found...'
+        },
         config = {};
 
     return {
 
         notify: function(data){
-            console.log('Notifier here... found something', data);
+            chrome.notifications.create("Notification", config, function(a,b){
+                console.log('callback',a,b,data);
+            })
         },
 
         run: function(){
