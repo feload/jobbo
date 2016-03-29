@@ -1,7 +1,15 @@
-var Jobbo = window.Jobbo || {};
+/**
+ * Finder module.
+ * This module is responsible for doing some searching.
+ */
 
+var Jobbo = window.Jobbo || {};
 Jobbo.Finder = (function(Notifier){
 
+    /**
+     * Defaults and config variables.
+     * @type Object
+     */
     var defaults = {
             api: 'http://jsonplaceholder.typicode.com/posts',
             search: {
@@ -13,6 +21,10 @@ Jobbo.Finder = (function(Notifier){
 
     return {
 
+        /**
+         * Search for items which match with keywords.
+         * @return function.
+         */
         search: function(){
 
             regexp = regexp || new RegExp(config.search.keywords.join("|"));
@@ -33,17 +45,34 @@ Jobbo.Finder = (function(Notifier){
 
         },
 
+        /**
+         * Run module.
+         * @return void.
+         */
         run: function(){
         },
 
+        /**
+         * Dependencies intialization.
+         * @return void.
+         */
         initDeps: function(){
             Notifier.init();
         },
 
+        /**
+         * Generate configuration based on options.
+         * @param object _options
+         */
         setUp: function(_options){
             config = $.extend(defaults, _options);
         },
 
+        /**
+         * Module initialization.
+         * @param  object _options
+         * @return function
+         */
         init: function(_options){
             this.setUp(_options || {});
             this.initDeps();
@@ -51,4 +80,7 @@ Jobbo.Finder = (function(Notifier){
 
     }
 
+/**
+ * Dependencies.
+ */
 })(Jobbo.Notifier);
