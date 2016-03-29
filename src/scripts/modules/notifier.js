@@ -13,9 +13,9 @@ Jobbo.Notifier = (function(){
     return {
 
         notify: function(data){
-            chrome.notifications.create("Notification", config, function(a,b){
-                console.log('callback',a,data);
-            })
+            config = $.extend(config, data);
+            chrome.notifications.create("Notification", config, function(notification, data){
+            });
         },
 
         run: function(){

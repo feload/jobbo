@@ -2,22 +2,35 @@ var Jobbo = window.Jobbo || {};
 
 Jobbo.Finder = (function(Notifier){
 
-    var defaults = {},
-        config = {};
+    var defaults = {
+            api: 'http://jsonplaceholder.typicode.com/posts',
+            search: {
+                keywords: ['esse', 'dolorem']
+            }
+        },
+        config = {},
+        regexp = null;
 
     return {
 
         search: function(){
-            console.log('searching...');
 
-            if(Math.round(Math.random() * 10) % 2){
-                console.log('something found');
-                Notifier.notify({ rand: Math.random() });
-            }else{
-                console.log('nothing found :(');
-            }
+            regexp = regexp || new RegExp(config.search.keywords.join("|"));
+
+            $.get(config.api, function(data){
+
+                found = data.filter(function(post){
+                    return (regexp.test(post.title));
+                });
+
+                if(found.length){
+                    Notifier.notify({ message: "We found something for you!" });
+                }
+
+            });
 
             return this;
+
         },
 
         run: function(){
