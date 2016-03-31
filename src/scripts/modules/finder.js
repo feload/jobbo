@@ -3,6 +3,8 @@
  * This module is responsible for doing some searching.
  */
 
+'use strict';
+
 var Jobbo = window.Jobbo || {};
 Jobbo.Finder = (function(Notifier){
 

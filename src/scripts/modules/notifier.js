@@ -3,6 +3,8 @@
  * This module is responsible for showing notifications on your screen.
  */
 
+'use strict';
+
 var Jobbo = window.Jobbo || {};
 Jobbo.Notifier = (function(){
 

@@ -2,6 +2,8 @@
  * Main application script.
  */
 
+'use strict';
+
 var Jobbo = window.Jobbo || {};
 Jobbo.App = (function(Alarm){
 

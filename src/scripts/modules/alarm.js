@@ -3,6 +3,8 @@
  * This module is used for executing tasks at a certain interval.
  */
 
+'use strict';
+
 var Jobbo = window.Jobbo || {};
 Jobbo.Alarm = (function(Finder){
 
